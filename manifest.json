@@ -1,0 +1,52 @@
+{
+  "manifest_version": 2,
+  "name": "WA Plus Sender",
+  "version": "1.0.0",
+  "description": "WhatsApp Web bulk message sender extension",
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "https://web.whatsapp.com/*",
+    "https://wawebsender.com/*",
+    "https://scrm-global.zingfront.com/*",
+    "alarms",
+    "unlimitedStorage"
+  ],
+  "background": {
+    "scripts": ["js/background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://web.whatsapp.com/*"],
+      "js": [
+        "js/inject/content-script.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    "js/inject/inject.js",
+    "assets/*",
+    "icons/*",
+    "fonts/*",
+    "css/*"
+  ],
+  "icons": {
+    "16": "icons/128.png",
+    "32": "icons/128.png",
+    "48": "icons/128.png",
+    "128": "icons/128.png"
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "WA Plus Sender",
+    "default_icon": {
+      "16": "icons/128.png",
+      "32": "icons/128.png",
+      "48": "icons/128.png",
+      "128": "icons/128.png"
+    }
+  }
+}
